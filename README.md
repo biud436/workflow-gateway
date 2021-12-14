@@ -2,6 +2,10 @@
 
 This gateway project allows you to send a post request to a localhost in the docker container. to use this project, you need to call a command in your linux terminal, as follows:
 
+<p align="center">
+<img src="./docs/img/description.png" />
+</p>
+
 ```sh
 ip route | grep docker0 | awk '{print $9}'
 ```
