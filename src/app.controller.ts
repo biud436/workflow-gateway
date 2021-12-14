@@ -19,26 +19,18 @@ export class AppController {
 
   @Post('/webhook')
   async webhook(@Req() req: Request, @Body() body: any) {
-    // const gateway =
-    //   cp.execSync("ip route | grep default | awk '{print $3}'") || '172.17.0.1';
     const gateway = '172.17.0.1';
     const port = '3000';
 
-    // const url = `http://${gateway}:${port}/webhook`;
-    // const options = <AxiosRequestConfig>{
-    //   method: 'POST',
-    //   headers: req.headers,
-    // };
-    // const response = await this.httpService
-    //   .post(url, body, options)
-    //   .toPromise();
-
-    const url = `http://${gateway}:${port}/a`;
+    const url = `http://${gateway}:${port}/webhook`;
     const options = <AxiosRequestConfig>{
-      method: 'GET',
+      method: 'POST',
       headers: req.headers,
     };
-    const response = await this.httpService.get(url, options).toPromise();
+    const response = await this.httpService
+      .post(url, body, options)
+      .toPromise();
+
     return response.data;
   }
 }
