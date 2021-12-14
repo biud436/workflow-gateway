@@ -32,7 +32,7 @@ export class AppController {
     //   .post(url, body, options)
     //   .toPromise();
 
-    const url = `http://${gateway}:${port}/a`;
+    const url = `${gateway}:${port}/a`;
     const options = <AxiosRequestConfig>{
       method: 'GET',
       headers: req.headers,
