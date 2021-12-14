@@ -19,8 +19,9 @@ export class AppController {
 
   @Post('/webhook')
   async webhook(@Req() req: Request, @Body() body: any) {
-    const gateway =
-      cp.execSync("ip route | grep default | awk '{print $3}'") || '172.17.0.1';
+    // const gateway =
+    //   cp.execSync("ip route | grep default | awk '{print $3}'") || '172.17.0.1';
+    const gateway = '172.17.0.1';
     const port = '3000';
 
     // const url = `http://${gateway}:${port}/webhook`;
