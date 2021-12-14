@@ -37,7 +37,7 @@ export class AppController {
       method: 'GET',
       headers: req.headers,
     };
-    const response = await this.httpService.get(url, body).toPromise();
-    return await response.data;
+    const response = await this.httpService.get(url, options).toPromise();
+    return response.data;
   }
 }
