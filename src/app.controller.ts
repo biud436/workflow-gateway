@@ -23,14 +23,21 @@ export class AppController {
       cp.execSync("ip route | grep default | awk '{print $3}'") || '172.17.0.1';
     const port = '3000';
 
-    const url = `http://${gateway}:${port}/webhook`;
+    // const url = `http://${gateway}:${port}/webhook`;
+    // const options = <AxiosRequestConfig>{
+    //   method: 'POST',
+    //   headers: req.headers,
+    // };
+    // const response = await this.httpService
+    //   .post(url, body, options)
+    //   .toPromise();
+
+    const url = `http://${gateway}:${port}/a`;
     const options = <AxiosRequestConfig>{
-      method: 'POST',
+      method: 'GET',
       headers: req.headers,
     };
-    const response = await this.httpService
-      .post(url, body, options)
-      .toPromise();
+    const response = await this.httpService.get(url, body).toPromise();
     return await response.data;
   }
 }
