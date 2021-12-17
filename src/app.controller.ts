@@ -22,7 +22,7 @@ export class AppController {
     const gateway = '172.17.0.1';
     const port = '3000';
 
-    const url = `http://${gateway}:${port}/webhook`;
+    const url = `http://${gateway}:${port}/github/webhook`;
     const options = <AxiosRequestConfig>{
       method: 'POST',
       headers: req.headers,
