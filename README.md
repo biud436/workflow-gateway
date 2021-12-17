@@ -21,12 +21,12 @@ you should need to replace gateway address in the file named `app.controller.ts`
 ```ts
   @Post('/webhook')
   async webhook(@Req() req: Request, @Body() body: any) {
-    const gateway = '172.17.0.1'; // replace this address as you want.
-    const port = '3000'; // replace this port as you want.
+    const gateway = '172.17.0.1';
+    const port = '3000';
 
-    const url = `http://${gateway}:${port}/webhook`; // replace this address as you want
+    const url = `http://${gateway}:${port}/github/webhook`;
     const options = <AxiosRequestConfig>{
-      method: 'POST', // replace this method as you want.
+      method: 'POST',
       headers: req.headers,
     };
     const response = await this.httpService
